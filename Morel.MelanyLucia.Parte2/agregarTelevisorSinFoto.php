@@ -9,10 +9,10 @@ $paisOrigen = isset($_POST['paisOrigen']) ? $_POST['paisOrigen'] : NULL;
 if($tipo !== NULL && $precio !== NULL && $paisOrigen !== NULL)
 {
     $televisor = new Televisor($tipo, $precio, $paisOrigen);
-    $existe = $televisor->verificar(Televisor::traer());
+    $noExiste = $televisor->verificar(Televisor::traer());
 
-    if(!$existe){
-        $televisor->Agregar();
+    if($noExiste){
+        $televisor->agregar();
     }
     else{
         echo "El televisor ya existe.";
